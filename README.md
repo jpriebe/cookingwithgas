@@ -1,4 +1,4 @@
-cookingwithgas
+==cookingwithgas==
 version 1.0.1
 
 cookingwithgas is a web-based recipe management system.  It uses JQuery 
