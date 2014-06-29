@@ -1,0 +1,19 @@
+<?php
+
+$url1 = $this->url (array('controller' => 'account', 'action' => 'changepassword'), null, true );
+$url2 = $this->url (array('controller' => 'recipe', 'action' => 'printall'), null, true );
+$url3 = $this->url (array('controller' => 'recipe', 'action' => 'import'), null, true );
+$url4 = $this->url (array('controller' => 'recipe', 'action' => 'export'), null, true );
+$url5 = $this->url (array('controller' => 'account', 'action' => 'manage'), null, true );
+
+    print <<<__TEXT__
+<ul data-role="listview">
+<li><a rel="external" href="$url1">Change password</a></li>
+<li><a href="$url2" rel="external">Print All</a></li>
+<li><a href="$url3" rel="external">Import</a></li>
+<li><a href="$url4" rel="external">Export</a></li>
+<li><a href="$url5">Manage users</a></li>
+</ul>
+__TEXT__;
+
+?>

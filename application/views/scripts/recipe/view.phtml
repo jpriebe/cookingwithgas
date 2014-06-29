@@ -1,0 +1,83 @@
+<?php
+
+require_once ('text_utils.php');
+
+$r = $this->recipe;
+
+//print "<pre>\n" . print_r ($r, true) . "</pre>\n";
+
+$title = $r->get_title ();
+$yield = $r->get_yield ();
+$source = $r->get_source ();
+$ingredients = $r->get_ingredients ();
+$ingredients = preg_replace ('#\n#', "<br />\n", $ingredients);
+$ingredients = text_utils::fix_fractions ($ingredients);
+$directions = $r->get_directions ();
+$directions = preg_replace ('#\n#', "<br />\n", $directions);
+
+$xary = array ();
+foreach ($r->get_tags() as $t)
+{
+    $url = $this->url (array('controller' => 'recipe', 'action' => 'browsebytag', 
+            'id_tag' => $t->get_id ()), null, true );
+    $xary[] = "<a href=\"$url\">" . $t->get_tag () . "</a>\n";
+}
+$tags = join (', ', $xary);
+
+print <<<__TEXT__
+<h3>$title</h3>
+
+__TEXT__;
+
+if ($yield)
+{
+    print "<em>Yield: $yield</em><br />\n";
+}
+if ($source)
+{
+    print "<em>Source: $source</em><br />\n";
+}
+if ($tags)
+{
+    print "<em>Tags: $tags</em><br />\n";
+}
+
+
+?>
+<div data-role="collapsible" data-collapsed="false">
+<h3>Ingredients</h3>
+<?= $ingredients ?>
+</div>
+
+<div data-role="collapsible" data-collapsed="false">
+<h3>Directions</h3>
+<?= $directions ?>
+</div>
+
+<?php
+
+if ($notes = $r->get_notes ())
+{
+    $notes = preg_replace ('#\n#', "<br />\n", $notes);
+
+    print <<<__TEXT__
+<div data-role="collapsible" data-collapsed="false">
+<h3>Notes</h3>
+$notes
+</div>
+
+__TEXT__;
+}
+
+
+$url = $this->url (array('controller' => 'recipe', 'action' => 'print',
+    'id_recipe' => $r->get_id ()), null, true );
+print "<a href=\"$url\" data-role=\"button\" rel=\"external\">Print</a>\n";
+
+$url = $this->url (array('controller' => 'recipe', 'action' => 'email',
+    'id_recipe' => $r->get_id ()), null, true );
+print "<a href=\"$url\" data-role=\"button\">E-mail</a>\n";
+
+$url = $this->url (array('controller' => 'recipe', 'action' => 'edit',
+    'id_recipe' => $r->get_id ()), null, true );
+print "<a href=\"$url\" data-role=\"button\">Edit</a>\n";

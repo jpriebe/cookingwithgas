@@ -1,0 +1,19 @@
+<ul data-role="listview">
+<?php
+
+foreach ($this->recipes as $r)
+{
+    $url = $this->url (array('controller' => 'recipe', 'action' => 'view',
+        'id_recipe' => $r->get_id ()), null, true );
+    $title = $r->get_title ();
+
+    print <<<__TEXT__
+<li><a href="$url">$title</a></li>
+
+__TEXT__;
+    
+}
+
+?>
+</ul>
+

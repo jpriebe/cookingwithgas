@@ -1,0 +1,13 @@
+<?php
+
+if ($errors = $this->form->getErrorMessages())
+{
+    foreach ($errors as $error)
+    {
+        print "<p class=\"errormsg\"><strong>$error</strong></p>\n";
+    }
+}
+
+echo $this->form;
+
+?>

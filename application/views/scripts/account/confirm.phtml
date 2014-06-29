@@ -1,0 +1,28 @@
+<?php
+
+if ($this->confirmation_success)
+{
+    $url = $this->login_url;
+
+    print <<<__TEXT__
+<h2>Registration confirmed</h2>
+<p>
+You're all ready to start using the system.  When you're ready to start, just click
+<a rel="external" href="$url">Login</a>.
+</p>
+
+__TEXT__;
+
+}
+else
+{
+    print <<<__TEXT__
+<h2>Error</h2>
+<p>
+Your confirmation code does not match the one we have on file for
+this account.  Please check your e-mail again.
+</p>
+
+__TEXT__;
+}
+

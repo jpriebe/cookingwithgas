@@ -1,0 +1,16 @@
+<?php
+
+$url1 = $this->url (array('controller' => 'recipe', 'action' => 'edit',
+        'id_recipe' => $this->recipe->get_id ()), null, true );
+
+$url2 = $this->url (array('controller' => 'recipe', 'action' => 'delete',
+        'id_recipe' => $this->recipe->get_id ()), null, true );
+
+print <<<__TEXT__
+Really delete this recipe?
+
+<a href="$url1" data-role="button" target="_top">No</a>
+<a href="$url2" data-role="button">Yes</a>
+__TEXT__;
+
+?>

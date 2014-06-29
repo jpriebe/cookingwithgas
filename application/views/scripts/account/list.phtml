@@ -1,0 +1,19 @@
+<ul data-role="listview">
+<?php
+
+foreach ($this->accounts as $a)
+{
+    $url = $this->url (array('controller' => 'account', 'action' => 'edit',
+        'id_account' => $a->get_id ()), null, true );
+    $email = $a->get_email ();
+
+    print <<<__TEXT__
+<li><a href="$url">$email</a></li>
+
+__TEXT__;
+    
+}
+
+?>
+</ul>
+

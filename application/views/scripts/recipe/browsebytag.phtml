@@ -1,0 +1,37 @@
+<ul data-role="listview">
+<?php
+
+if ($this->viewmode == 'tags')
+{
+    foreach ($this->tags as $o)
+    {
+        $id = $o->get_id ();
+        $tag = $o->get_tag ();
+
+        $url = $this->url (array('controller' => 'recipe', 'action' => 'browsebytag', 'id_tag' => $id), null, true );
+
+        print <<<__TEXT__
+<li><a href="$url">$tag</a></li>
+
+__TEXT__;
+    
+    }
+}
+else
+{
+    foreach ($this->recipes as $r)
+    {
+        $url = $this->url (array('controller' => 'recipe', 'action' => 'view', 'id_recipe' => $r->get_id ()), null, true );
+        $title = $r->get_title ();
+
+        print <<<__TEXT__
+<li><a href="$url">$title</a></li>
+
+__TEXT__;
+
+    }
+}
+
+?>
+</ul>
+

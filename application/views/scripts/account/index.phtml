@@ -1,0 +1,27 @@
+<?php
+
+$auth = Application_Model_Account::is_authenticated ();
+
+$url1 = $this->url( array('controller' => 'account', 'action' => 'login'), null, true );
+$url2 = $this->url( array('controller' => 'account', 'action' => 'register'), null, true );
+
+$config = Zend_Registry::get('config');
+if ($config->open_registration && !$config->demo_mode)
+{
+    print <<<__TEXT__
+<ul data-role="listview">
+<li><a href="$url1">Login</a></li>
+<li><a href="$url2">Register</a></li>
+</ul>
+__TEXT__;
+}
+else
+{
+    print <<<__TEXT__
+<ul data-role="listview">
+<li><a href="$url1">Login</a></li>
+</ul>
+__TEXT__;
+}
+
+?>

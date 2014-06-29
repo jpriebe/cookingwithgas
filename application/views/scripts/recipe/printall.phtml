@@ -1,0 +1,9 @@
+<?php
+
+if ($this->pdf)
+{
+    header ("Content-type: application/pdf");
+    print $this->pdf->render ();
+}
+
+?>

@@ -1,0 +1,29 @@
+<?php
+
+if ($this->registration_success)
+{
+    $url = $this->url (array ('controller' => 'account', 'action' => 'login'), null, false);
+
+    print <<<__TEXT__
+<h2>Thanks for registering!</h2>
+<p>
+A confirmation message has been sent to 
+{$this->email}.  Click the link in that message in order
+to confirm your account.
+</p>
+
+__TEXT__;
+
+}
+else
+{
+    if ($errors = $this->form->getErrorMessages())
+    {
+        foreach ($errors as $error)
+        {
+            print "<p class=\"errormsg\"><strong>$error</strong></p>\n";
+        }
+    }
+    echo $this->form;
+}
+

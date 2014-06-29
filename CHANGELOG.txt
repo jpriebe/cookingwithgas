@@ -1,0 +1,14 @@
+Version 1.0.1               2013-01-03
+
+updated for jquery mobile 1.2.0
+
+now links directly to search form from main screen instead of to a menu of
+search options (to speed things up when you have a low bandwidth connection)
+
+
+-------------------------------------------------------------------------------
+
+Version 1.0                 2011-04-24
+
+Initial release
+

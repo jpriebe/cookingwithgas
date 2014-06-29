@@ -1,0 +1,10 @@
+Cleanup
+ - recipe edit: fix the tag field label problem
+ - bug: should not be able to submit search form without at least one
+   box checked
+
+Extra stuff:
+  - remember e-mail addresses you've mailed to
+  - images???
+  - caching of objects for speed
+  - share on facebook

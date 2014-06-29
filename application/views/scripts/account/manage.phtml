@@ -1,0 +1,16 @@
+<?php
+if (isset ($_SESSION['account']))
+{
+    $url1 = $this->url (array('controller' => 'account', 'action' => 'list'), null, true );
+    $url2 = $this->url (array('controller' => 'account', 'action' => 'register'), null, true );
+    $url2 .= "?id_account_group=" . $_SESSION['account']->get_id_account_group ();
+
+
+    print <<<__TEXT__
+<ul data-role="listview">
+<li><a href="$url1">List</a></li>
+<li><a href="$url2">Add new</a></li>
+</ul>
+__TEXT__;
+}
+?>

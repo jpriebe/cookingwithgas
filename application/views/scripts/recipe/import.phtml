@@ -1,0 +1,20 @@
+<?php
+
+if ($this->success_message)
+{
+    print '<strong>' . $this->success_message . '</strong>';
+}
+else
+{
+    if ($errors = $this->form->getErrorMessages())
+    {
+        foreach ($errors as $error)
+        {
+            print "<p class=\"errormsg\"><strong>$error</strong></p>\n";
+        }
+    }
+
+    echo $this->form;
+}
+
+?>

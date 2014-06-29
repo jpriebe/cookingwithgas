@@ -1,0 +1,24 @@
+<?php
+
+$url0 = $this->url (array('controller' => 'recipe', 'action' => 'recent'), null, true );
+$url1 = $this->url (array('controller' => 'recipe', 'action' => 'browse'), null, true );
+$url2 = $this->url (array('controller' => 'recipe', 'action' => 'browsebytag'), null, true );
+$url3 = $this->url (array('controller' => 'recipe', 'action' => 'search',
+    'search_by' => 'title'), null, true );
+$url4 = $this->url (array('controller' => 'recipe', 'action' => 'add'), null, true );
+$url5 = $this->url (array('controller' => 'index', 'action' => 'utils'), null, true );
+$url6 = $this->url (array('controller' => 'account', 'action' => 'logout'), null, true );
+
+    print <<<__TEXT__
+<ul data-role="listview">
+<li><a href="$url0">Recent</a></li>
+<li><a href="$url1">Browse by title</a></li>
+<li><a href="$url2">Browse by tag</a></li>
+<li><a href="$url3">Search</a></li>
+<li><a href="$url4">Add new</a></li>
+<li><a href="$url5">Utils</a></li>
+<li><a rel="external" href="$url6">Log out</a></li>
+</ul>
+__TEXT__;
+
+?>

@@ -1,0 +1,23 @@
+<?php
+
+if ($errors = $this->form->getErrorMessages())
+{
+    foreach ($errors as $error)
+    {
+        print "<p class=\"errormsg\"><strong>$error</strong></p>\n";
+    }
+}
+echo $this->form;
+
+if ($this->account)
+{
+    $url = $this->url (array('controller' => 'account', 'action' => 'confirmdelete',
+            'id_account' => $this->account->get_id ()), null, true );
+
+    print <<<__TEXT__
+<a href="$url" data-role="button" data-transition="pop">delete</a>
+
+__TEXT__;
+}
+
+?>

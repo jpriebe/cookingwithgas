@@ -1,0 +1,59 @@
+<?php
+
+if ($errors = $this->form->getErrorMessages())
+{
+    foreach ($errors as $error)
+    {
+        print "<p class=\"errormsg\"><strong>$error</strong></p>\n";
+    }
+}
+
+echo $this->form;
+
+if ($this->recipe)
+{
+    $url = $this->url (array('controller' => 'recipe', 'action' => 'confirmdelete',
+        'id_recipe' => $this->recipe->get_id ()), null, true );
+
+//<a href="$url" data-role="button" data-rel="dialog" data-transition="pop">delete</a>
+    print <<<__TEXT__
+<a href="$url" data-role="button" data-transition="pop">delete</a>
+
+__TEXT__;
+}
+
+
+$taglist = array ();
+foreach ($this->tags as $o)
+{
+    $taglist[] = $o->get_tag ();
+}
+$taglist = '"' . join ('", "', $taglist) . '"';
+
+$num_tags = $this->form->get_num_tags ();
+
+print <<<__TEXT__
+
+<script type="text/javascript">
+$(document).ready (function() {
+    var wordlist = [$taglist];
+    var num_tags = $num_tags;
+
+    for (var i = 1; i <= num_tags; i++)
+    {
+        $("#tag" + i).autocomplete({
+            source: function(req, responseFn) {
+                var re = $.ui.autocomplete.escapeRegex(req.term);
+                var matcher = new RegExp( "^" + re, "i" );
+                var a = $.grep( wordlist, function(item,index){
+                    return matcher.test(item);
+                });
+                responseFn( a );
+            }
+        });
+    }
+});
+</script>
+__TEXT__;
+
+?>

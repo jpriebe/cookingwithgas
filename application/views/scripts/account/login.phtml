@@ -1,0 +1,22 @@
+<?php
+
+if ($errors = $this->form->getErrorMessages())
+{
+    foreach ($errors as $error)
+    {
+        print "<p class=\"errormsg\"><strong>$error</strong></p>\n";
+    }
+}
+echo $this->form;
+
+$url = $this->url (array ('controller' => 'account', 'action' => 'register'), null, true);
+
+$options = <<<__TEXT__
+<p>
+Not registered? <a href="$url">Create an account</a>
+</p>
+
+__TEXT__;
+
+print $options;
+?>
