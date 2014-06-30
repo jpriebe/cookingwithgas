@@ -27,7 +27,7 @@ phones and iPhones.
 
 ## Requirements
 
-- php 5 (tested with php 5.2, but I think it *should* work with other
+- php 5 (tested with php 5.2 and 5.4, but I think it *should* work with other
   point releases of php 5)
 
 - ZendFramework 1.11 or above (it *may* work with earlier versions, but
