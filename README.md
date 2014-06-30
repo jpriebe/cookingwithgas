@@ -1,11 +1,11 @@
-cookingwithgas
+# cookingwithgas
 version 1.0.1
 
 cookingwithgas is a web-based recipe management system.  It uses JQuery 
 Mobile to generate a UI that is designed for mobile devices like Android 
 phones and iPhones.
 
-Features:
+## Features
 
 - arbitrary tagging system so that you can organize and browse your
   recipes in a variety of different ways.
@@ -25,7 +25,7 @@ Features:
   recipes at all.  So you could host this and let different unrelated users
   manage their recipes independently.
 
-Requirements:
+## Requirements
 
 - php 5 (tested with php 5.2, but I think it *should* work with other
   point releases of php 5)
@@ -39,7 +39,7 @@ Requirements:
 
 - JQuery Mobile (currently at version 1 alpha 4)
 
-Installing:
+## Installing
 
 - unpack the tarball
 
@@ -64,7 +64,7 @@ Installing:
 - if you want to import recipes, you'll need them to be in this XML
   format:
 
-<pre>
+```
 <?xml version="1.0" encoding="utf-8"?>
 <recipes>
   <recipe>
@@ -87,4 +87,4 @@ LIKE THIS.</directions>
     </tags>
   </recipe>
 </recipes>
-</pre>
+```
